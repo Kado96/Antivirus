@@ -1,18 +1,40 @@
+import { useState } from "react";
+import { Mail } from "lucide-react";
+
 const PaymentButton = () => {
+  const [email, setEmail] = useState("");
+
   return (
     <form 
       action="https://www.afripay.africa/checkout/index.php" 
       method="post" 
       id="afripayform"
-      className="w-full"
+      className="w-full space-y-4"
     >
       <input type="hidden" name="amount" value="30000" />
       <input type="hidden" name="currency" value="BIF" />
       <input type="hidden" name="comment" value="Kaspersky Antivirus - Licence 1 an" />
-      <input type="hidden" name="client_token" value="" />
+      <input type="hidden" name="client_token" value={email} />
       <input type="hidden" name="return_url" value="" />
       <input type="hidden" name="app_id" value="5b47c080a61d5652c3696cbdf2f8a8cd" />
       <input type="hidden" name="app_secret" value="JDJ5JDEwJHNPRHp3" />
+      
+      {/* Email input */}
+      <div className="relative">
+        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+        <input
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Votre adresse email"
+          required
+          className="w-full pl-12 pr-4 py-3 rounded-xl bg-background/50 border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+        />
+      </div>
+      <p className="text-xs text-muted-foreground text-center">
+        📧 Le lien de téléchargement sera envoyé à cette adresse
+      </p>
       
       <button
         type="submit"
