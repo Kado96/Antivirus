@@ -58,14 +58,9 @@ const PricingCard = () => {
         <PaymentButton />
         
         {/* Trust badge */}
-        <div className="text-center mt-4 space-y-2">
-          <p className="text-xs text-muted-foreground">
-            🔒 Paiement 100% sécurisé via AfriPay
-          </p>
-          <p className="text-xs text-accent">
-            📧 Le lien de téléchargement vous sera envoyé par email après paiement
-          </p>
-        </div>
+        <p className="text-center text-xs text-muted-foreground mt-4">
+          🔒 Paiement 100% sécurisé via AfriPay
+        </p>
       </div>
     </div>
   );
