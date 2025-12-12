@@ -3,11 +3,13 @@ import PaymentButton from "./PaymentButton";
 
 const PricingCard = () => {
   const features = [
+    "Licence 1 an - Multi-appareils",
+    "Garantie 3 ans incluse",
+    "Guide d'installation complet",
+    "Vidéo tutoriel fournie",
+    "Lien de téléchargement envoyé par email",
     "Protection antivirus en temps réel",
     "Blocage des ransomwares",
-    "Protection de la vie privée",
-    "Navigation sécurisée",
-    "Mises à jour automatiques",
     "Support technique 24/7",
   ];
 
@@ -28,7 +30,7 @@ const PricingCard = () => {
             <Shield className="w-8 h-8 text-primary-foreground" />
           </div>
           <h3 className="text-2xl font-bold text-foreground mb-1">Kaspersky Antivirus</h3>
-          <p className="text-muted-foreground">Licence 1 an - 1 appareil</p>
+          <p className="text-muted-foreground">Licence 1 an - Multi-appareils</p>
         </div>
         
         {/* Price */}
@@ -56,9 +58,14 @@ const PricingCard = () => {
         <PaymentButton />
         
         {/* Trust badge */}
-        <p className="text-center text-xs text-muted-foreground mt-4">
-          🔒 Paiement 100% sécurisé via AfriPay
-        </p>
+        <div className="text-center mt-4 space-y-2">
+          <p className="text-xs text-muted-foreground">
+            🔒 Paiement 100% sécurisé via AfriPay
+          </p>
+          <p className="text-xs text-accent">
+            📧 Le lien de téléchargement vous sera envoyé par email après paiement
+          </p>
+        </div>
       </div>
     </div>
   );
