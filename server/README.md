@@ -65,4 +65,18 @@ Si vous n'avez pas encore envoyé votre code sur GitHub, suivez ces commandes de
 > Si vous faites des modifications plus tard, utilisez simplement `git add .`, `git commit -m "votre message"` puis `git push`.
 
 ---
+
+## 🔗 Lier le dépôt sur Render
+
+1.  **Dashboard** : Allez sur [dashboard.render.com](https://dashboard.render.com).
+2.  **Nouveau Web Service** : Cliquez sur **New +** > **Web Service**.
+3.  **Dépôt** : Sélectionnez `Antivirus`.
+4.  **Configuration du Service** :
+    *   **Root Directory** : `server`
+    *   **Build Command** : `npm install`
+    *   **Start Command** : `npm start`
+5.  **Variables d'Environnement** (Onglet Environment) :
+    *   Ajoutez `PORT`, `EMAIL_USER`, `EMAIL_PASS`, `AFRIPAY_APP_ID`, `AFRIPAY_APP_SECRET`.
+
+---
 *Généré par l'équipe Antigravity (Agent Développeur)*
