@@ -8,6 +8,9 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    headers: {
+      "Content-Security-Policy": "default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:; connect-src * 'self' http://localhost:5001 https://*; script-src * 'self' 'unsafe-inline' 'unsafe-eval'; style-src * 'self' 'unsafe-inline'; img-src * 'self' data: https://*; font-src * 'self' data: https://*;"
+    }
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

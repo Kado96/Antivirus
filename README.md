@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# Kaspersky Secure Pay - Système de Paiement Intégré
 
-## Project info
+Ce projet est une solution complète de vente de logiciels (Kaspersky) intégrant le gateway de paiement **AfriPay** (Lumicash/Ecocash). Il se compose d'un frontend moderne en React et d'un backend proxy sécurisé en Node.js.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🏗️ Architecture du Système
 
-## How can I edit this code?
+Le système fonctionne en deux parties distinctes pour garantir la sécurité et contourner les restrictions CORS des APIs de paiement :
 
-There are several ways of editing your application.
+1.  **Frontend (Vite/React)** : Gère l'interface utilisateur premium, la configuration dynamique (Admin) et l'expérience d'achat.
+2.  **Backend Proxy (Node.js/Express)** : Sert d'intermédiaire entre le client et l'API AfriPay. Il sécurise vos clés API (`APP_ID`, `APP_SECRET`) et gère les notifications par email via SMTP.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 💻 Fonctionnement en LOCAL
 
-Changes made via Lovable will be committed automatically to this repo.
+En développement local, vous faites tourner deux serveurs simultanément :
 
-**Use your preferred IDE**
+### 1. Le Backend (Sur le port 5001)
+- **Rôle** : Reçoit les demandes du frontend, appelle AfriPay, et vérifie les transactions.
+- **Lancement** : 
+  ```bash
+  cd server
+  npm install
+  node index.js
+  ```
+- **Configuration** : Fichier `server/.env` contenant vos accès AfriPay et vos paramètres Email.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 2. Le Frontend (Sur le port 8080 par défaut)
+- **Rôle** : Affiche le site. Il communique avec le backend via `http://localhost:5001`.
+- **Lancement** :
+  ```bash
+  npm install
+  npm run dev
+  ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🚀 Fonctionnement en PRODUCTION
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+En production, le système est conçu pour être déployé sur des plateformes comme **Render.com** ou un serveur **cPanel/VPS**.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 1. Déploiement du Backend
+Le backend doit être déployé sur un serveur Node.js public. 
+- L'URL de production sera par exemple : `https://votre-api.onrender.com`
+- **Important** : Vous devez mettre à jour les variables d'environnement sur votre hébergeur (ne jamais uploader le fichier `.env`).
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 2. Déploiement du Frontend
+Le frontend est "buildé" (compilé) en fichiers statiques (HTML/JS/CSS).
+- **Commande** : `npm run build`
+- **Lien avec le backend** : Le frontend doit connaître l'URL de votre backend de production. Dans le code, cela se gère via la variable `VITE_API_URL`.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+---
+
+## 🔐 Configuration & Panneau Admin
+
+Le système inclut un panneau d'administration (`/admin`) qui vous permet de modifier dynamiquement sans toucher au code :
+- Les prix et devises.
+- Les textes et titres (Hero, Features, Pricing).
+- **Le lien de téléchargement** après paiement.
+- **Les instructions Lumicash** étape par étape.
+
+**Accès par défaut** : `donald / donald` (modifiable dans `src/pages/Admin.tsx`).
+
+---
+
+## 🛠️ Variables d'Environnement (.env)
+
+Voici les clés nécessaires dans votre fichier `server/.env` :
+
+```env
+PORT=5001
+AFRIPAY_APP_ID=votre_id
+AFRIPAY_APP_SECRET=votre_secret
+EMAIL_USER=votre_email@gmail.com
+EMAIL_PASS=votre_mot_de_passe_application
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📧 Système de Notification
+Si un paiement prend plus de 40 secondes à être validé (attente utilisateur), le système envoie automatiquement un email à votre adresse configurée pour vous prévenir qu'une transaction est en cours de finalisation manuelle.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+**Développé avec ❤️ pour une expérience utilisateur Premium.**
