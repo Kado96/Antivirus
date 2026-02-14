@@ -76,7 +76,16 @@ Si vous n'avez pas encore envoyé votre code sur GitHub, suivez ces commandes de
     *   **Build Command** : `npm install`
     *   **Start Command** : `npm start`
 5.  **Variables d'Environnement** (Onglet Environment) :
-    *   Ajoutez `PORT`, `EMAIL_USER`, `EMAIL_PASS`, `AFRIPAY_APP_ID`, `AFRIPAY_APP_SECRET`.
+
+Ajoutez ces valeurs exactement comme indiqué ci-dessous dans Render :
+
+| Clé (Key) | Valeur (Value) | Note |
+| :--- | :--- | :--- |
+| `PORT` | `10000` | Port standard pour Render. |
+| `AFRIPAY_APP_ID` | `5b47c080a61d5652c3696cbdf2f8a8cd` | Identifiant AfriPay. |
+| `AFRIPAY_APP_SECRET` | `JDJ5JDEwJHNPRHp3` | Secret AfriPay. |
+| `EMAIL_USER` | `VOTRE_EMAIL@GMAIL.COM` | Votre adresse email d'envoi. |
+| `EMAIL_PASS` | `VOTRE_MOT_DE_PASSE_APP` | Mot de passe d'application (pas le mot de passe normal). |
 
 ---
 *Généré par l'équipe Antigravity (Agent Développeur)*
