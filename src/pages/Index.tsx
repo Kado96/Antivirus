@@ -55,58 +55,10 @@ const Index = () => {
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-blue-600/10 rounded-full blur-[150px] opacity-40" />
       </div>
 
-      {/* Hero Section */}
-      <header className="relative pt-24 pb-16 md:pt-32 md:pb-24">
+      {/* Pricing Section - NOW AT THE TOP */}
+      <section className="relative pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Animated Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-10 animate-fade-up">
-              <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
-              <span className="text-[10px] font-black text-white uppercase tracking-[0.3em]">
-                {config.heroBadge}
-              </span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter animate-fade-up leading-tight">
-              <span className="bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent italic">
-                {config.heroTitleLine1}
-              </span>
-              <br />
-              <span className="text-primary italic inline-block hover:scale-105 transition-transform cursor-default">
-                {config.heroTitleHighlight}
-              </span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-medium leading-relaxed animate-fade-up shadow-sm">
-              {config.heroSubtitle}
-            </p>
-
-            {/* Trust Badges / Stats */}
-            <div className="flex flex-wrap justify-center gap-10 md:gap-20 animate-fade-up border-y border-white/5 py-10">
-              {[
-                { label: "Utilisateurs", value: "400M+" },
-                { label: "Taux Détection", value: "99.9%" },
-                { label: "Protection", value: "24/7" },
-              ].map((stat, i) => (
-                <div key={i} className="text-center group cursor-default">
-                  <div className="text-3xl md:text-4xl font-black text-white group-hover:text-primary transition-colors italic">
-                    {stat.value}
-                  </div>
-                  <div className="text-[9px] text-slate-500 font-black uppercase tracking-[0.4em] mt-2 group-hover:text-slate-400">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Pricing Section */}
-      <section className="relative py-24 md:py-32 bg-slate-950/20">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tighter italic">
               {config.pricingTitleLine1}{" "}
               <span className="text-primary">{config.pricingTitleHighlight}</span>
@@ -172,7 +124,55 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Hero Section - NOW IN THE MIDDLE */}
+      <header className="relative py-24 md:py-32 border-t border-white/5">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Animated Badge */}
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-10 animate-fade-up">
+              <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
+              <span className="text-[10px] font-black text-white uppercase tracking-[0.3em]">
+                {config.heroBadge}
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter animate-fade-up leading-tight">
+              <span className="bg-gradient-to-b from-white to-slate-400 bg-clip-text text-transparent italic">
+                {config.heroTitleLine1}
+              </span>
+              <br />
+              <span className="text-primary italic inline-block hover:scale-105 transition-transform cursor-default">
+                {config.heroTitleHighlight}
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-medium leading-relaxed animate-fade-up shadow-sm">
+              {config.heroSubtitle}
+            </p>
+
+            {/* Trust Badges / Stats with Updated Labels */}
+            <div className="flex flex-wrap justify-center gap-10 md:gap-20 animate-fade-up border-y border-white/5 py-10">
+              {[
+                { label: "Utilisateurs Protégés", value: "400M+" },
+                { label: "Taux de Détection", value: "99.9%" },
+                { label: "Protection Active", value: "24/7" },
+              ].map((stat, i) => (
+                <div key={i} className="text-center group cursor-default">
+                  <div className="text-3xl md:text-4xl font-black text-white group-hover:text-primary transition-colors italic">
+                    {stat.value}
+                  </div>
+                  <div className="text-[9px] text-slate-500 font-black uppercase tracking-[0.4em] mt-2 group-hover:text-slate-400">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Features Section - AT THE BOTTOM */}
       <section className="relative py-24 md:py-32 border-t border-white/5">
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
@@ -205,12 +205,11 @@ const Index = () => {
       <footer className="border-t border-white/5 py-16 bg-[#01040D]">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center gap-8">
-            {/* Branding Logo could go here */}
             <div className="text-2xl font-black text-white italic tracking-tighter">
               KASPERSKY<span className="text-primary">.</span>
             </div>
             <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.5em] text-center max-w-md leading-loose">
-              {config.footerText}
+              © 2025 - REVENDEUR AGRÉÉ KASPERSKY. TOUS DROITS RÉSERVÉS.
             </p>
           </div>
         </div>
