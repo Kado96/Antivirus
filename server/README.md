@@ -62,7 +62,7 @@ Si vous n'avez pas encore envoyé votre code sur GitHub, suivez ces commandes de
    ```
 
 > [!TIP]
-> Si vous faites des modifications plus tard, utilisez simplement `git add .`, `git commit -m "votre message"` puis `git push`.
+> Si vous faites des modifications plus tard, utilisez simplement `git add .`, `git commit -m "J'ai configure tous pour le frontend et le backend"` puis `git push`.
 
 ---
 
